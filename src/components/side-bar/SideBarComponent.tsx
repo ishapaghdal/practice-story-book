@@ -13,15 +13,15 @@ const Sidebar = ({ onSelectedStyle }) => {
   };
 
   return (
-    <aside className="w-64 h-screen bg-gray-900 text-white flex flex-col p-4">
+    <aside className="w-64 h-screen bg-gray-900 text-white flex flex-col p-4 overflow-y-auto">
       {/* Logo */}
-      <div className="mb-6 flex items-center justify-center">
+      <div className="mb-6 flex items-center justify-center ">
         <img src="/logo2.png" alt="Logo" className="h-12 w-12" />
       </div>
 
       {/* Navigation */}
       <nav className="space-y-2">
-        {/* Dropdown Example */}
+        {/* Butoon*/}
         <div
           className="cursor-pointer"
           onClick={() => toggleDropdown("buttons")}
@@ -43,60 +43,13 @@ const Sidebar = ({ onSelectedStyle }) => {
               {Object.keys(buttonStyles).map((key) => (
                 <button
                   onClick={() => {
-                    onSelectedStyle(key );
+                    onSelectedStyle(key);
                   }}
                   className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
                 >
                   {key}
                 </button>
               ))}
-              <button
-                onClick={() => {
-                  onSelectedStyle("primary");
-                }}
-                className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
-              >
-                Primary
-              </button>
-              <button
-                onClick={() => {
-                  onSelectedStyle("secondary");
-                }}
-                className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
-              >
-                Secondary
-              </button>
-            </div>
-          )}
-        </div>
-
-        {/* Another Dropdown */}
-        <div className="cursor-pointer" onClick={() => toggleDropdown("team")}>
-          <div className="flex items-center justify-between p-2 rounded-lg hover:bg-gray-800">
-            <div className="flex items-center space-x-3">
-              <Users size={20} />
-              <span>Team</span>
-            </div>
-            {openDropdown === "team" ? (
-              <ChevronUp size={18} />
-            ) : (
-              <ChevronDown size={18} />
-            )}
-          </div>
-          {openDropdown === "team" && (
-            <div className="ml-6 space-y-2">
-              <Link
-                to="/team/developers"
-                className="block p-2 rounded-lg hover:bg-gray-700"
-              >
-                Developers
-              </Link>
-              <Link
-                to="/team/designers"
-                className="block p-2 rounded-lg hover:bg-gray-700"
-              >
-                Designers
-              </Link>
             </div>
           )}
         </div>
