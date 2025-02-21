@@ -1,18 +1,12 @@
-
-  import { textStyles } from "./Text";              
+import { textStyles } from "./Text";
 
 interface TextProps {
   selectedTextStyle: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
 }
 
-const TextBox = ({ selectedTextStyle }: TextProps) => {
-  // console.log("button", typeof(String(selectedStyle)));
-  console.log(selectedTextStyle.toString());
-
-  console.log(textStyles[selectedTextStyle]);
-
+const TextBox = ({ selectedStyle }:Record<string,string>) => {
   return (
-    <div className={textStyles[selectedTextStyle]}>    
+    <div className={textStyles[selectedStyle]}>
       A "storybook" in development refers to a dedicated tool like "Storybook"
       that allows developers to build, test, and document individual UI
       components in isolation from the main application, providing a focused
@@ -26,7 +20,6 @@ const TextBox = ({ selectedTextStyle }: TextProps) => {
       developers can easily preview different states and variations of each
       component visually, allowing them to quickly identify design issues and
       ensure a consistent user experience.
-      
     </div>
   );
 };

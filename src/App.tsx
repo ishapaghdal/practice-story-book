@@ -24,14 +24,6 @@ function App() {
 
   return (
     <div className="flex h-screen bg-gray-100">
-      <MainComponent
-        selectedStyle={selectedStyle}
-        selectedTextStyle={selectedTextStyle}
-      />
-      <SideBarComponent
-        onSelectedStyle={onSelectedStyle}
-        onSelectedTextStyle={onSelectedTextStyle}
-      />
 
       <MainComponent
         selectedStyle={selectedStyle}

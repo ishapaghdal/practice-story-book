@@ -1,7 +1,7 @@
 import React from 'react'
 import { linkStyles } from './linkStyles';
 
-const Link = ({selectedStyle}) => {
+const Link = ({selectedStyle } : Record<string,string>) => {
     console.log(selectedStyle);
     
   return (
