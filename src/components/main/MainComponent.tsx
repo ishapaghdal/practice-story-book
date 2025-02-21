@@ -1,7 +1,15 @@
 import Button from "../button/Button";
-const MainComponent = ({ selectedStyle }) => {
-  console.log(selectedStyle);
+import TextBox from "../Text/TextBox";
 
+
+interface MainComponentProps {
+  selectedStyle: any;
+  selectedTextStyle: any;
+}
+
+const MainComponent = ({ selectedStyle, selectedTextStyle }: MainComponentProps) => {
+  console.log(selectedStyle);
+  console.log(selectedTextStyle);
   return (
     <main className="flex-1 p-6 overflow-auto">
       <h1 className="text-3xl font-semibold mb-4">Welcome to the Dashboard</h1>
@@ -10,7 +18,7 @@ const MainComponent = ({ selectedStyle }) => {
       </p>
 
       <Button selectedStyle = {selectedStyle} />
-
+      <TextBox selectedTextStyle = {selectedTextStyle} />
       {/* Placeholder Routes (You can customize these later)
           <Routes>
             <Route path="/" element={<Dashboard />} />
