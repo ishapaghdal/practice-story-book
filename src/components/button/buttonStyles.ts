@@ -12,5 +12,8 @@ export const buttonStyles :  Record<string,string> = {
     "delete" : "px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600",
     "success" : "px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600",
     "warning" : "px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600",
+    "sm" : "px-4 py-2 text-sm font-bold",
+    "md" : "px-4 py-2 text-md font-bold",
+    "lg" : "px-4 py-2 text-lg font-bold",
   };
   

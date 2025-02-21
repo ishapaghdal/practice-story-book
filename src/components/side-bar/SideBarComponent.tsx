@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, File, Users } from "lucide-react";
-import { Link } from "react-router-dom";
+
 import { buttonStyles } from "../button/buttonStyles";
+import { textStyles } from "../Text/Text";
 
-const Sidebar = ({ onSelectedStyle }) => {
+const Sidebar = ({ onSelectedStyle , onSelectedTextStyle }: any) => {
   console.log(buttonStyles);
-
+  console.log(textStyles);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const toggleDropdown = (menu: string) => {
@@ -43,6 +44,7 @@ const Sidebar = ({ onSelectedStyle }) => {
               {Object.keys(buttonStyles).map((key) => (
                 <button
                   onClick={() => {
+
                     onSelectedStyle(key);
                   }}
                   className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
@@ -50,7 +52,109 @@ const Sidebar = ({ onSelectedStyle }) => {
                   {key}
                 </button>
               ))}
+
+              <button
+                onClick={() => {
+                  onSelectedStyle("primary");
+                }}
+                className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
+              >
+                Primary
+              </button>
+              <button
+                onClick={() => {
+                  onSelectedStyle("secondary");
+                }}
+                className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
+              >
+                Secondary
+              </button>
             </div>
+          )}
+        </div>
+
+        {/* Another Dropdown */}
+        <div className="cursor-pointer" onClick={() => toggleDropdown("team")}>
+          <div className="flex items-center justify-between p-2 rounded-lg hover:bg-gray-800">
+            <div className="flex items-center space-x-3">
+              <Users size={20} />
+              <span>Text</span>
+            </div>
+            {openDropdown === "team" ? (
+              <ChevronUp size={18} />
+            ) : (
+              <ChevronDown size={18} />
+            )}
+          </div>
+          {openDropdown === "team" && (
+            <div className="ml-6 space-y-2">
+             <button
+                onClick={() => {
+                  onSelectedTextStyle("sm");
+                }}
+                className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
+              >
+                 sm
+              </button>
+              <button
+                onClick={() => {
+                  onSelectedTextStyle("md");
+                }}
+                className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
+              >
+                md
+              </button>
+              <button
+                onClick={() => {
+                  onSelectedTextStyle("lg");
+                }}
+                className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
+              >
+                lg
+              </button>
+              <button
+                onClick={() => {
+                  onSelectedTextStyle("xl");
+                }}
+                className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
+              >
+                xl
+              </button>
+              <button
+                onClick={() => {
+                  onSelectedTextStyle("2xl");
+                }}
+                className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
+              >
+                2xl
+              </button>
+              <button
+                onClick={() => {
+                  onSelectedTextStyle("3xl");
+                }}
+                className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
+              >
+                3xl
+              </button>
+              <button
+                onClick={() => {
+                  onSelectedTextStyle("4xl");
+                }}
+                className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
+              >
+                4xl
+              </button>
+              <button
+                onClick={() => {
+                  onSelectedTextStyle("5xl");
+                }}
+                className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
+              >
+                5xl
+              </button>
+
+            </div>
+            
           )}
         </div>
       </nav>
