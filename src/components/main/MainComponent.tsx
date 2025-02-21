@@ -6,8 +6,7 @@ interface MainComponentProps {
   selectedStyle: any;
   selectedTextStyle: any;
 }
-
-const MainComponent = ({ selectedStyle, selectedTextStyle }: MainComponentProps) => {
+const MainComponent = ({ selectedStyle, selectedButton,selectedTextStyle }: MainComponentProps) => {
   console.log(selectedStyle);
   console.log(selectedTextStyle);
   return (
@@ -17,8 +16,12 @@ const MainComponent = ({ selectedStyle, selectedTextStyle }: MainComponentProps)
         This is the main content area. Select an option from the sidebar.
       </p>
 
-      <Button selectedStyle = {selectedStyle} />
-      <TextBox selectedTextStyle = {selectedTextStyle} />
+
+<TextBox selectedTextStyle = {selectedTextStyle} />
+      {selectedButton == "button" && <Button selectedStyle = {selectedStyle} />}
+      {selectedButton == "link" && <Link selectedStyle = {selectedStyle} />}
+
+
       {/* Placeholder Routes (You can customize these later)
           <Routes>
             <Route path="/" element={<Dashboard />} />

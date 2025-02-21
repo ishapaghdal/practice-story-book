@@ -3,10 +3,10 @@ import { ChevronDown, ChevronUp, File, Users } from "lucide-react";
 
 import { buttonStyles } from "../button/buttonStyles";
 import { textStyles } from "../Text/Text";
+import { Link } from "react-router-dom";
 
-const Sidebar = ({ onSelectedStyle , onSelectedTextStyle }: any) => {
-  console.log(buttonStyles);
-  console.log(textStyles);
+const Sidebar = ({ onSelectedStyle, onSelectedButton, onSelectedTextStyle }) => {
+
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const toggleDropdown = (menu: string) => {
@@ -46,6 +46,37 @@ const Sidebar = ({ onSelectedStyle , onSelectedTextStyle }: any) => {
                   onClick={() => {
 
                     onSelectedStyle(key);
+                    onSelectedButton("button");
+                  }}
+                  className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
+                >
+                  {key}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="cursor-pointer" onClick={() => toggleDropdown("links")}>
+          <div className="flex items-center justify-between p-2 rounded-lg hover:bg-gray-800">
+            <div className="flex items-center space-x-3">
+              <File size={20} />
+              <span>Link</span>
+            </div>
+            {openDropdown === "links" ? (
+              <ChevronUp size={18} />
+            ) : (
+              <ChevronDown size={18} />
+            )}
+          </div>
+          {/* {link styles.} */}
+          {openDropdown === "links" && (
+            <div className="ml-6 space-y-2">
+              {Object.keys(linkStyles).map((key) => (
+                <button
+                  onClick={() => {
+                    onSelectedStyle(key);
+                    onSelectedButton("link");
                   }}
                   className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
                 >
