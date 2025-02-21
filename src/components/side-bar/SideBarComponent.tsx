@@ -43,7 +43,7 @@ const Sidebar = ({ onSelectedStyle }) => {
               {Object.keys(buttonStyles).map((key) => (
                 <button
                   onClick={() => {
-                    onSelectedStyle({ key });
+                    onSelectedStyle(key );
                   }}
                   className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
                 >

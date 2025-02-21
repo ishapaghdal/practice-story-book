@@ -7,7 +7,7 @@ interface ButtonProps {
 
 const Button = ({ selectedStyle }: ButtonProps) => {
   // console.log("button", typeof(String(selectedStyle)));
-  console.log(selectedStyle.toString());
+  console.log(selectedStyle);
   
   console.log(buttonStyles[selectedStyle]);
   
