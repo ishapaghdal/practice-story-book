@@ -14,15 +14,15 @@ const Sidebar = ({ onSelectedStyle , onSelectedTextStyle }: any) => {
   };
 
   return (
-    <aside className="w-64 h-screen bg-gray-900 text-white flex flex-col p-4">
+    <aside className="w-64 h-screen bg-gray-900 text-white flex flex-col p-4 overflow-y-auto">
       {/* Logo */}
-      <div className="mb-6 flex items-center justify-center">
+      <div className="mb-6 flex items-center justify-center ">
         <img src="/logo2.png" alt="Logo" className="h-12 w-12" />
       </div>
 
       {/* Navigation */}
       <nav className="space-y-2">
-        {/* Dropdown Example */}
+        {/* Butoon*/}
         <div
           className="cursor-pointer"
           onClick={() => toggleDropdown("buttons")}
@@ -44,13 +44,15 @@ const Sidebar = ({ onSelectedStyle , onSelectedTextStyle }: any) => {
               {Object.keys(buttonStyles).map((key) => (
                 <button
                   onClick={() => {
-                    onSelectedStyle( key );
+
+                    onSelectedStyle(key);
                   }}
                   className="block p-2 w-full text-left rounded-lg hover:bg-gray-700"
                 >
                   {key}
                 </button>
               ))}
+
               <button
                 onClick={() => {
                   onSelectedStyle("primary");
@@ -150,6 +152,7 @@ const Sidebar = ({ onSelectedStyle , onSelectedTextStyle }: any) => {
               >
                 5xl
               </button>
+
             </div>
             
           )}
